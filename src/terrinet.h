@@ -4,6 +4,7 @@
 #include <iostream>
 
 #include <QWidget>
+#include "movement.h"
 
 namespace Ui {
 class Terrinet;
@@ -64,6 +65,8 @@ private slots:
 
     void on_commandLinkButton_clicked();
 
+    void on_topics_clicked();
+
 
 
 private:
@@ -73,6 +76,7 @@ private:
     int cnt=0;
     int id=1;
     std::string conv(std::string cadena);
+    Movement *move;
 
 
 

@@ -25,6 +25,8 @@ ${EIGEN3_INCLUDE_DIR}
   ${catkin_INCLUDE_DIRS}
 )
 
+
+
 if(rviz_QT_VERSION VERSION_LESS "5")
   message(STATUS "Using Qt4 based on the rviz_QT_VERSION: ${rviz_QT_VERSION}")
   find_package(Qt4 ${rviz_QT_VERSION} EXACT REQUIRED QtCore QtGui)
@@ -58,16 +60,19 @@ set(PROJECT_NAME terrinet)
 set(SOURCES
     main.cpp
     terrinet.cpp
+    movement.cpp
 
 )
 
 set(HEADERS
     terrinet.h
+    movement.h
 
 )
 
 set(UI_SOURCES
     terrinet.ui
+    movement.ui
 
 )
 
@@ -76,7 +81,8 @@ QT5_WRAP_UI(terrinet_FORMS_HEADERS ${UI_SOURCES})
 
 add_executable(${PROJECT_NAME} ${SRC_FILES} ${HDR_FILES})
 target_include_directories(${PROJECT_NAME} PUBLIC "./")
-
+target_include_directories(${PROJECT_NAME} PUBLIC ${catkin_INCLUDE_DIRS})
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES})
 
 target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
 target_link_libraries(${PROJECT_NAME} Qt5::PrintSupport)

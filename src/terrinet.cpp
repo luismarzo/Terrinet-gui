@@ -40,7 +40,11 @@ Terrinet::~Terrinet()
     delete ui;
 }
 
-
+void Terrinet::on_topics_clicked()
+{
+    move = new Movement(this);
+    move->show();
+}
 
 void Terrinet::on_pushButton_clicked()
 {
@@ -53,6 +57,9 @@ void Terrinet::on_pushButton_2_clicked()
 {
     std::cout<<"PIONEER"<<std::endl;
     system("gnome-terminal -x bash -c 'killall gzclient;source ~/ws_p3at/devel/setup.bash; roslaunch pioneer3at pioneer3at.launch'");
+
+
+
 
 
 }
