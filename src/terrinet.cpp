@@ -21,14 +21,19 @@ Terrinet::Terrinet(QWidget *parent) :
     //ui->pushButton_10->setVisible(0);
     ui->comboBox->addItem("Px4 bringup");
     ui->comboBox->addItem("Uav abstraction layer");
-    ui->label_3->setVisible(0);
-    ui->label_4->setVisible(0);
-    ui->label_5->setVisible(0);
+    //quita esto cuando vayas a usar los algoritmos con la interfaz
+    //ui->label_3->setVisible(0);
+    //ui->label_4->setVisible(0);
+    //ui->label_5->setVisible(0);
     ui->commandLinkButton->setVisible(0);
     ui->lineEdit_2->setVisible(0);
     ui->lineEdit->setVisible(0);
     ui->lineEdit_3->setVisible(0);
     ui->pushButton_19->setVisible(0);
+    id=1;
+    ui->pushButton_4->setVisible(0);
+    ui->pushButton_5->setVisible(0);
+    ui->pushButton_11->setVisible(0);
 
 
 
@@ -56,7 +61,7 @@ void Terrinet::on_pushButton_clicked()
 void Terrinet::on_pushButton_2_clicked()
 {
     std::cout<<"PIONEER"<<std::endl;
-    system("gnome-terminal -x bash -c 'killall gzclient;source ~/ws_p3at/devel/setup.bash; roslaunch pioneer3at pioneer3at.launch'");
+    system("gnome-terminal -x bash -c 'killall gzclient;export ROS_PACKAGE_PATH=/home/luis/ws_p3at/src:/home/luis/ws_agv_golf/src:/home/luis/ws_ual/src:/opt/ros/kinetic/share; roslaunch pioneer3at pioneer3at.launch'");
 
 
 
@@ -67,7 +72,8 @@ void Terrinet::on_pushButton_2_clicked()
 void Terrinet::on_pushButton_12_clicked()
 {
     std::cout<<"BOBCAT"<<std::endl;
-    system("gnome-terminal -x bash -c 'killall gzclient;source ~/ws_agv_golf/devel/setup.bash; roslaunch rbcar_sim_bringup rbcar_complete_gs.launch'");
+    system("gnome-terminal -x bash -c 'killall gzclient;source ~/ws_agv_golf/devel/setup.bash & source ~/ws_ual/devel/setup.bash; roslaunch rbcar_sim_bringup rbcar_complete_gs.launch'");
+
 
 
 }
@@ -75,7 +81,7 @@ void Terrinet::on_pushButton_12_clicked()
 void Terrinet::on_pushButton_20_clicked()
 {
     std::cout<<"AGV"<<std::endl;
-    system("gnome-terminal -x bash -c 'killall gzclient;source ~/ws_agv_golf/devel/setup.bash; roslaunch ackermann_gazebo ackermann_vehicle.launch'");
+    system("gnome-terminal -x bash -c 'killall gzclient;source ~/ws_agv_golf/devel/setup.bash & source ~/ws_ual/devel/setup.bash; roslaunch ackermann_gazebo ackermann_vehicle.launch'");
 
 
 }
@@ -160,9 +166,9 @@ void Terrinet::on_pushButton_11_clicked()
     std::cout<<"TSP algorithm"<<std::endl;
     //pongo el launcher despues de crear el archivo
     //system("gnome-terminal -x bash -c 'source ~/ws_ual/devel/setup.bash; rosrun tsp_mtsp test_ual_interfaces_mtsp'");
-    ui->label_3->setVisible(1);
-    ui->label_4->setVisible(1);
-    ui->label_5->setVisible(1);
+    //ui->label_3->setVisible(1);
+    //ui->label_4->setVisible(1);
+    //ui->label_5->setVisible(1);
     ui->commandLinkButton->setVisible(1);
     ui->lineEdit_2->setVisible(1);
     ui->lineEdit->setVisible(1);
@@ -288,9 +294,9 @@ void Terrinet::on_pushButton_19_clicked()
     }
 
     file.close();
-    ui->label_3->setVisible(0);
-    ui->label_4->setVisible(0);
-    ui->label_5->setVisible(0);
+    //ui->label_3->setVisible(0);
+    //ui->label_4->setVisible(0);
+    //ui->label_5->setVisible(0);
     ui->commandLinkButton->setVisible(0);
     ui->lineEdit_2->setVisible(0);
     ui->lineEdit->setVisible(0);

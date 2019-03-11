@@ -16,6 +16,7 @@ class Terrinet : public QWidget
 
 public:
     explicit Terrinet(QWidget *parent = 0);
+    int id;
     ~Terrinet();
 
 private slots:
@@ -74,7 +75,7 @@ private:
     Ui::Terrinet *ui;    
     int x[100],y[100],z[100];
     int cnt=0;
-    int id=1;
+    //
     std::string conv(std::string cadena);
     Movement *move;
 

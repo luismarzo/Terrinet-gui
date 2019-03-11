@@ -7,6 +7,7 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   rviz
+  uav_abstraction_layer
 )
 
 
